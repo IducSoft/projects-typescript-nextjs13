@@ -1,0 +1,4 @@
+type AddItemButtonProps = {
+    dark?: boolean
+}
+

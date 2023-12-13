@@ -8,7 +8,7 @@ type CardProps = {
 
 const Card = ({text}: CardProps) => {
   return (
-    <div className='CardContainer'>{text}</div>
+    <div className='CardContainer text-black'>{text}</div>
   )
 }
 

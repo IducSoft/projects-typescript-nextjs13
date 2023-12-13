@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from 'react'
 import "../../globals.css"
+import NewItemForm from './NewItemForm'
+
 
 
 type AddNewItemProps = {
@@ -16,10 +18,18 @@ const AddNewItem = (props: AddNewItemProps) => {
     const { onAdd, toggleButtonText, dark } = props;
     if (showForm) {
     // We show item creation form here
+      return(
+        <NewItemForm 
+          onAdd={text => {
+            onAdd(text)
+            setShowForm(false)
+          }}
+        />
+      )
     }
 
   return (
-    <div className={`${dark ? "#000" : "#fff"} AddItemButton`} onClick={() => setShowForm(true)}>
+    <div className={` text-black AddItemButton`} onClick={() => setShowForm(true)}>
         {toggleButtonText}
     </div>
   )

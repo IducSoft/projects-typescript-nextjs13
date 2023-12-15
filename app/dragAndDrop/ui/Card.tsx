@@ -3,7 +3,8 @@ import   "../../globals.css";
 
 
 type CardProps = {
-    text: string
+  text: string
+  id: string
 }
 
 const Card = ({text}: CardProps) => {

@@ -1,28 +1,28 @@
 "use client"
 import React from "react";
 import AppContainer from "./ui/AppContainer";
-import AddNewItem from "./ui/AddNewItem";
 import Column from "./ui/Column";
-import Card from "./ui/Card";
+import { useAppState } from "./state/DragAndDropContext";
+import AddNewItem from "./ui/AddNewItem";
 
 
 
-const page = () => {
+const Page = () => {
+
+  const { lists } = useAppState()
   return (
     <div className="h-[100vh]">
       <AppContainer>
-        <Column text="To Do">
-          <Card text="Generate app scaffold" />
-        </Column>
-        <Column text="In Progress">
-          <Card text="Learn Typescript" />
-        </Column>
-        <Column text="Done">
-          <Card text="Begin to use static typing" />
-        </Column>
+      {lists.map((list) => (
+        <Column text={list.text} key={list.id} id={list.id} />
+      ))}
+        <AddNewItem
+          toggleButtonText="+ Add another list"
+          onAdd={console.log}
+        />
       </AppContainer>
     </div>
   )
 }
 
-export default page
+export default Page

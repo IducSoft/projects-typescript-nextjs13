@@ -9,10 +9,7 @@ import { addList } from "./state/actions";
 
 
 const Page = () => {
-
-  
   const {lists, dispatch} = useAppState();
-
 
   return (
     <div className="h-[100vh]">

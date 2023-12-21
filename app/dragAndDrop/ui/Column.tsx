@@ -43,7 +43,7 @@ const Column: FC<ColumnProps> = ({ text, id, isPreview }: ColumnProps) => {
     <div className='ColumnContainer' ref={ref} isPreview={isPreview} isHidden={isHidden(draggedItem, "COLUMN", id, isPreview)}>
         <h2 className='ColumnTitle text-black'>{text}</h2>
           {tasks.map(task => (
-            <Card text={task.text} key={task.id} id={task.id} />
+            <Card id={task.id} columnId={id} text={task.text} key={task.id} />
           ))}
         
         <AddNewItem

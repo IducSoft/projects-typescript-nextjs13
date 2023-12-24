@@ -29,7 +29,7 @@ const Column: FC<ColumnProps> = ({ text, id, isPreview }: ColumnProps) => {
     }
     if (draggedItem.type === "COLUMN") {
     if (draggedItem.id === id) {
-    return;
+      return;
     }
     dispatch(moveList(draggedItem.id, id))
     }
@@ -45,7 +45,7 @@ const Column: FC<ColumnProps> = ({ text, id, isPreview }: ColumnProps) => {
   drag(drop(ref))
   
   return (
-    <div className='ColumnContainer' ref={ref}  >
+    <div className='ColumnContainer' ref={ref} >
         <h2 className='ColumnTitle text-black'>{text}</h2>
           {tasks.map(task => (
             <Card id={task.id} columnId={id} text={task.text} key={task.id} />

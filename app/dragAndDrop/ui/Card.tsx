@@ -40,7 +40,7 @@ const Card = ({text,id,columnId,isPreview}: CardProps) => {
   drag(drop(ref))
 
   return (
-    <div className='CardContainer text-black' isHidden={isHidden(draggedItem, "CARD", id, isPreview)} isPreview={isPreview} ref={ref}>{text}</div>
+    <div className='CardContainer text-black' hidden={isHidden(draggedItem, "CARD", id, isPreview)}  ref={ref}>{text}</div>
   )
 }
 

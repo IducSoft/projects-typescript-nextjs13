@@ -1,4 +1,4 @@
-import { createContext, useContext, FC, Dispatch} from "react";
+import React, { createContext, useContext, FC, Dispatch} from "react";
 import {appStateReducer,AppState,List,Task} from "./appStateReducer";
 import { Action } from './actions';
 import { useImmerReducer } from "use-immer";
@@ -38,7 +38,7 @@ export const useAppState = () => {
     return useContext(AppStateContext)
 }
 
-export const AppStateProvider: FC = ({ children }: any) => {
+export const AppStateProvider = ({children}: {children: React.ReactNode}) => {
     const [state, dispatch] = useImmerReducer(appStateReducer, appData)
     const { draggedItem, lists } = state
     const getTasksByListId = (id: string) => {

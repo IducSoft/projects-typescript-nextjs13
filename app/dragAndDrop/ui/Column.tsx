@@ -5,10 +5,12 @@ import { FC } from "react"
 import AddNewItem from './AddNewItem';
 import { useAppState } from '../state/DragAndDropContext';
 import Card from './Card';
-import { addTask, moveList } from '../state/actions';
+import { addTask, moveList, moveTask, setDraggedItem } from '../state/actions';
 import { useItemDrag } from '../utils/useItemDrag';
 import { useDrop } from 'react-dnd';
 import { isHidden } from '../utils/isHidden';
+import { DragItem } from '../DragItem';
+
 
 
 type ColumnProps = {
@@ -21,17 +23,35 @@ type ColumnProps = {
 
 const Column: FC<ColumnProps> = ({ text, id, isPreview }: ColumnProps) => {
 
-  const [, drop] = useDrop({accept: "COLUMN",hover() {
-    if (!draggedItem) {
+  const [, drop] = useDrop({accept: ["COLUMN", "CARD"],hover(item: DragItem) {
+
+    if (item.type === "COLUMN") {
+    // ... dragging column
+    } else {
+    if (draggedItem.columnId === id) {
     return
     }
-    if (draggedItem.type === "COLUMN") {
-    if (draggedItem.id === id) {
+    if (tasks.length) {
     return
+    }
+    dispatch(
+    moveTask(draggedItem.id, null, draggedItem.columnId, id)
+    )
+    dispatch(setDraggedItem({ ...draggedItem, columnId: id }))
+    }
+
+    if (!draggedItem) {
+      return
+    }
+    if (draggedItem.type === "COLUMN") {
+      if (draggedItem.id === id) {
+      return
     }
   dispatch(moveList(draggedItem.id, id))}
   }
   })
+
+  
   const { draggedItem, getTasksByListId, dispatch } = useAppState()
   const tasks = getTasksByListId(id)
   const ref = useRef<HTMLDivElement>(null)

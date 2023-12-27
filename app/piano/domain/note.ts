@@ -46,3 +46,4 @@ export function fromMidi(midi: MidiValue): Note {
 }
 
 export const notes = generateNotes();
+

@@ -1,0 +1,17 @@
+.root {
+    --footer-height: 60px;
+    --logo-height: 8rem;
+}
+
+
+.app {
+    min-height: 100vh;
+}
+
+.content {
+    --offset: calc(var(60px) + var(8rem));
+    min-height: calc(100vh - var(--offset));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

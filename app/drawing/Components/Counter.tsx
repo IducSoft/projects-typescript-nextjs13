@@ -6,6 +6,7 @@ import {
   decrement,
   increment,
   incrementByAmount,
+  reset
 } from '../store/CounterSlice';
 import styles from '../Components/Counter.module.css';
 
@@ -49,6 +50,15 @@ export function Counter() {
           }
         >
           Add Amount
+        </button>
+
+        <button
+          className={styles.button}
+          onClick={() =>
+            dispatch(reset())
+          }
+        >
+          Reset
         </button>
         
       </div>

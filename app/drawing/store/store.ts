@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import CounterSlice from "./CounterSlice";
+import PublicationSlice from "./PublicationSlice";
 
 
 const persistConfig = {
@@ -22,6 +23,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   // tus reducers van aquí
     counter: CounterSlice,
+    posts: PublicationSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

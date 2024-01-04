@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-    Count,
+  Count,
   decrement,
   increment,
   incrementByAmount,

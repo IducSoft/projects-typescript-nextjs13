@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
@@ -12,7 +13,9 @@ export const PostsList = () => {
               <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 {post.title}
               </time>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Application UI code in Tailwind CSS</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                <Link href={`/drawing/${post.id}`}>View Post</Link>
+              </h3>
               <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                 {post.content.substring(0, 100)}
               </p>
@@ -21,13 +24,13 @@ export const PostsList = () => {
     ))
 
       return (
-    <section className="posts-list mx-4 flex flex-col  items-center">
-      <h2>Posts</h2>
-      
-      <ol className="relative border-s border-gray-200 dark:border-gray-700">                  
-          
-      {renderedPosts}
-      </ol>
-    </section>
-  )
+      <section className="posts-list mx-4 flex flex-col  items-center">
+        <h2>Posts</h2>
+        
+        <ol className="relative border-s border-gray-200 dark:border-gray-700">                  
+            
+        {renderedPosts}
+        </ol>
+      </section>
+      )
 }

@@ -4,10 +4,7 @@ import { publicacion } from '../store/PublicationSlice'
 import Link from 'next/link'
 import { EditPostForm } from './EditPostForm'
 
-
-
 export const SinglePostPage = ({ idPost }:{idPost:string}) => {
-  
   const {posts}: any = useSelector((state) => state)
   const postFinally = posts.find((post : publicacion) => post.id === idPost)
   if (!postFinally) {

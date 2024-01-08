@@ -14,7 +14,7 @@ export const PostsList = () => {
                 {post.title}
               </time>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                <Link href={`/drawing/${post.id}`}>View Post</Link>
+                <Link href={`/drawing/${post.id}`}>Edit post</Link>
               </h3>
               <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                 {post.content.substring(0, 100)}

@@ -2,6 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { publicacion } from '../store/PublicationSlice'
 import Link from 'next/link'
+import { EditPostForm } from './EditPostForm'
+
+
 
 export const SinglePostPage = ({ idPost }:{idPost:string}) => {
   
@@ -20,6 +23,7 @@ export const SinglePostPage = ({ idPost }:{idPost:string}) => {
       <h2>{postFinally.title}</h2>
         <p className="post-content">{postFinally.content}</p>
         <Link href={"/drawing"}>Volver a Drawing</Link>
+        <EditPostForm idPost={idPost} />
       </article>
     </section>
   )
